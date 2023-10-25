@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  app:
+    working_dir: /app
+    command: ["npx", "nodemon", "app.mjs"]
+    volumes:
+      - ./:/app
+    env_file:
+      - .env
