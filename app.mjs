@@ -36,6 +36,9 @@ const handler = async (request, reply) => {
 };
 
 Fastify({ trustProxy: true })
+  .get("/~health", async (request, reply) => {
+    reply.code(204).send();
+  })
   .get("*", handler)
   .listen({ port: 3000, host: "0.0.0.0" })
   .then((address) => console.log({ address }))
